@@ -2,6 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/andrei/Library/Autosave Information/Lab Alg/Lab Alg/sortingAlg.cpp">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/andrei/Library/Autosave Information/Lab Alg/Lab Alg/sortingAlg.hpp">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/andrei/Library/Autosave Information/Lab Alg/Lab Alg/_serviceFunc.cpp">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/andrei/Library/Autosave Information/Lab Alg/Lab Alg/_serviceFunc.hpp">
+   </FileRef>
+   <FileRef
       location = "self:Lab Alg.xcodeproj">
    </FileRef>
 </Workspace>

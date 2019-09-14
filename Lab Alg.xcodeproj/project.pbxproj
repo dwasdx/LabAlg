@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		750E0625232D481C0050F7F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 750E0624232D481C0050F7F2 /* main.cpp */; };
+		750E063D232D50D30050F7F2 /* sortingAlg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 750E063C232D50D30050F7F2 /* sortingAlg.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		750E0621232D481C0050F7F2 /* Lab Alg */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Lab Alg"; sourceTree = BUILT_PRODUCTS_DIR; };
 		750E0624232D481C0050F7F2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		750E063B232D50D30050F7F2 /* sortingAlg.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = sortingAlg.hpp; path = "/Users/andrei/Library/Autosave Information/Lab Alg/Lab Alg/sortingAlg.hpp"; sourceTree = "<absolute>"; };
+		750E063C232D50D30050F7F2 /* sortingAlg.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = sortingAlg.cpp; path = "/Users/andrei/Library/Autosave Information/Lab Alg/Lab Alg/sortingAlg.cpp"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +45,6 @@
 			isa = PBXGroup;
 			children = (
 				750E0623232D481C0050F7F2 /* Lab Alg */,
-				750E0622232D481C0050F7F2 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,12 +54,16 @@
 				750E0621232D481C0050F7F2 /* Lab Alg */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		750E0623232D481C0050F7F2 /* Lab Alg */ = {
 			isa = PBXGroup;
 			children = (
 				750E0624232D481C0050F7F2 /* main.cpp */,
+				750E063C232D50D30050F7F2 /* sortingAlg.cpp */,
+				750E063B232D50D30050F7F2 /* sortingAlg.hpp */,
+				750E0622232D481C0050F7F2 /* Products */,
 			);
 			path = "Lab Alg";
 			sourceTree = "<group>";
@@ -119,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				750E0625232D481C0050F7F2 /* main.cpp in Sources */,
+				750E063D232D50D30050F7F2 /* sortingAlg.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,9 +7,19 @@
 //
 
 #include <iostream>
+#include "sortingAlg.hpp"
+#include <random>
+//#include "serviceFunc.cpp"
+
+using namespace std;
+
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+    srand(time(NULL));
+    vector<float> arr;
+    for (int i = 0; i < 20; i++)
+        arr.push_back((static_cast<float>(rand() / static_cast<float>(RAND_MAX))) * 10);
+    printArr(arr);
+    mergeSort(arr);
+    printArr(arr);
 }
