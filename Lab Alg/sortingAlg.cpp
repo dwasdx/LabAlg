@@ -10,25 +10,23 @@
 #include <iostream>
 #include <random>
 
-vector<float> selectionSort(vector<float> arr) {
+void selectionSort(vector<float>& arr) {
     if (arr.size() == 0)
-        return {};
+        return;
     
     for (int i = 0; i < arr.size() - 1; i++) {
         int indexOfMin = i;
-        for (int j = i + 1; j < arr.size(); j++) {
-            if (arr[j] < arr[indexOfMin]) {
+        for (int j = i + 1; j < arr.size(); j++)
+            if (arr[j] < arr[indexOfMin])
                 indexOfMin = j;
-                float temp = arr[indexOfMin];
-                arr[indexOfMin] = arr[i];
-                arr[i] = temp;
-            }
-        }
+        float temp = arr[indexOfMin];
+        arr[indexOfMin] = arr[i];
+        arr[i] = temp;
     }
-    return arr;
+//    return arr;
 }
 
-vector<float> bucketSort(vector<float> arr) {
+void bucketSort(vector<float>& arr) {
 //    int range = (int)(searchMax(arr) - searchMin(arr)) + 1;
     vector<float> bucket[arr.size()];
     float maxElem = searchMax(arr);
@@ -40,7 +38,7 @@ vector<float> bucketSort(vector<float> arr) {
     }
     
     for (int i = 0; i < arr.size(); i++)
-        bucket[i] = selectionSort(bucket[i]);
+        selectionSort(bucket[i]);
     
     int index = 0;
     for (int i = 0; i < arr.size(); i++) {
@@ -49,12 +47,11 @@ vector<float> bucketSort(vector<float> arr) {
             bucket[i].erase(bucket[i].begin());
         }
     }
-    
-    return arr;
+    return;
 }
 
 void mergeSort(vector<float>& arr, int left, int right) {
-    if (left + 1 > right)
+    if (left + 1 >= right)
         return;
     int medium = (left + right) / 2;
     mergeSort(arr, left, medium);

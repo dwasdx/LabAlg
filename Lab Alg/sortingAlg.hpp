@@ -12,11 +12,11 @@
 #include <vector>
 using namespace std;
 
-vector<float> selectionSort(vector<float> arr);
-vector<float> bucketSort(vector<float> arr);
+void selectionSort(vector<float>& arr);
+void bucketSort(vector<float>& arr);
 void mergeSort(vector<float>& arr);
-vector<float> quickSort(vector<float> arr);
-vector<float> timSort(vector<float> arr, int left, int right);
+void quickSort(vector<float>& arr);
+void timSort(vector<float>& arr, int left, int right);
 
 void printArr(vector<float> arr);
 float searchMin(vector<float> arr);
