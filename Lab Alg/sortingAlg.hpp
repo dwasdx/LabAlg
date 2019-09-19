@@ -22,7 +22,7 @@ int quickSortPartitionRandom(vector<float>& arr, int left, int right);
 int quickSortPartitionWorst(vector<float>& arr, int left, int right);
 void timSort(vector<float>& arr);
 void insertionSort(vector<float>& arr, int left, int right);
-void mergeTim(vector<float>& arr, int left, int medium, int right);
+void mergeTim(vector<float>& arr, int l, int m, int r);
 
 void printArr(vector<float> arr);
 float searchMin(vector<float> arr);
