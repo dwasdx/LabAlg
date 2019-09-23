@@ -24,12 +24,16 @@ void timSort(vector<float>& arr);
 void insertionSort(vector<float>& arr, int left, int right);
 void mergeTim(vector<float>& arr, int l, int m, int r);
 
+
 void printArr(vector<float> arr);
+void printArr(vector<long> arr);
+
 float searchMin(vector<float> arr);
 float searchMax(vector<float> arr);
 float searchMaxForSort(vector<float> arr, int left, int right);
 float searchMinForSort(vector<float> arr, int left, int right);
 int getMinrun(int n);
+void getTimeSort(vector<float>& arr);
 
 
 

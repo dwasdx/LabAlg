@@ -8,6 +8,7 @@
 
 #include "sortingAlg.hpp"
 #include <iostream>
+#include <ctime>
 #include <random>
 #include <algorithm>
 using namespace std;
@@ -108,7 +109,8 @@ void quickSortWorst(vector<float>& arr, int left, int right) {
 }
 
 int quickSortPartitionRandom(vector<float>& arr, int left, int right) {
-    float pivot = arr[left];
+//    int randIndex = rand() % right + left;
+    float pivot = arr[(rand() % right - left) + left];
     int leftmark = left + 1;
     int rightmark = right;
     bool flag = false;
@@ -167,137 +169,63 @@ void insertionSort(vector<float>& arr, int left, int right) {
     }
 }
 
-//void timSort(vector<float>& arr) {
-//    for (int i = 0; i < arr.size(); i += 32)
-//        insertionSort(arr, i, min(i + 31, (int)arr.size() - 1));
-//
-//    for (int size = 32; size < arr.size(); size *= 2)
-//        for (int left = 0; left < arr.size(); left += 2 * size) {
-//            int right = min(left + 2 * size - 1, (int)arr.size() - 1);
-//            int medium = min(left + size - 1, int(arr.size()) - 1);
-//            mergeTim(arr, left, medium, right);
-//        }
-//}
-//
-//void mergeTim(vector<float>& arr, int left, int medium, int right) {
-//    int len1 = medium - left + 1,
-//    len2 = right - medium;
-//    vector<float> leftArr(len1), rightArr(len2);
-//    for (int i = 0; i < len1; i++ )
-//        leftArr[i] = arr[left + i];
-//    for (int i = 0; i < len2; i++)
-//        rightArr[i] = arr[medium + 1 + i];
-//
-//    int i = 0, j = 0, k = left;
-//
-//    while (i < len1 && j < len2) {
-//        if (leftArr[i] < rightArr[j]) {
-//            arr[k] = leftArr[i];
-//            i++;
-//        } else if (leftArr[i] > rightArr[j]) {
-//            arr[k] = rightArr[j];
-//            j++;
-//        } else {
-//            arr[k] = leftArr[i];
-//            i++;
-//            k++;
-//            arr[k] = rightArr[j];
-//            k++;
-//            j++;
-//        }
-//        k++;
-//    }
-//    while (i < len1) {
-//        arr[k] = leftArr[i];
-//        i++;
-//        k++;
-//    }
-//    while (j < len2) {
-//        arr[k] = rightArr[j];
-//        j++;
-//        k++;
-//    }
-//}
+void timSort(vector<float>& arr) {
+    for (int i = 0; i < arr.size(); i += 32)
+        insertionSort(arr, i, min(i + 31, (int)arr.size() - 1));
 
-
-void mergeTim(std::vector<float>& arr, long long l, long long m, long long r)
-{
-    // original array is broken in two parts
-    // left and right array
-    long long len1 = m - l + 1, len2 = r - m;
-    std::vector<float> left(len1), right(len2);
-    for (int i = 0; i < len1; i++)
-        left[i] = arr[l + i];
-    for (int i = 0; i < len2; i++)
-        right[i] = arr[m + 1 + i];
-    long long i = 0;
-    long long j = 0;
-    long long k = l;
-    // after comparing, we merge those two array
-    // in larger sub array
-    while (i < len1 && j < len2)
-    {
-        if (left[i] <= right[j])
-        {
-            arr[k] = left[i];
-            i++;
+    for (int size = 32; size < arr.size(); size *= 2)
+        for (int left = 0; left < arr.size(); left += 2 * size) {
+            int medium = min(left + size - 1, int(arr.size()) - 1);
+            int right = min(left + 2 * size - 1, (int)arr.size() - 1);
+            mergeTim(arr, left, medium, right);
         }
-        else
-        {
-            arr[k] = right[j];
+}
+
+void mergeTim(vector<float>& arr, int left, int medium, int right) {
+    int len1 = medium - left + 1,
+    len2 = right - medium;
+    vector<float> leftArr(len1), rightArr(len2);
+    for (int i = 0; i < len1; i++ )
+        leftArr[i] = arr[left + i];
+    for (int i = 0; i < len2; i++)
+        rightArr[i] = arr[medium + 1 + i];
+
+    int i = 0, j = 0, k = left;
+
+    while (i < len1 && j < len2) {
+        if (leftArr[i] <= rightArr[j]) {
+            arr[k] = leftArr[i];
+            i++;
+        } else {
+            arr[k] = rightArr[j];
             j++;
         }
         k++;
     }
-    // copy remaining elements of left, if any
-    while (i < len1)
-    {
-        arr[k] = left[i];
-        k++;
+    while (i < len1) {
+        arr[k] = leftArr[i];
         i++;
-    }
-    // copy remaining element of right, if any
-    while (j < len2)
-    {
-        arr[k] = right[j];
         k++;
+    }
+    while (j < len2) {
+        arr[k] = rightArr[j];
         j++;
+        k++;
     }
 }
-// iterative Timsort function to sort the
-// array[0...n-1] (similar to merge sort)
-void timSort(std::vector<float>& arr)
-{
-    //                                                      goto zaloopa;
-    // Sort individual subarrays of size RUN
-    long long n=arr.size();
-    for (long long i = 0; i < n; i+=RUN)
-        insertionSort(arr, i, std::min((i+31), (n-1)));
-    // start merging from size RUN (or 32). It will merge
-    // to form size 64, then 128, 256 and so on ....
-    for (long long size = RUN; size < n; size = 2*size)
-    {
-        // pick starting point of left sub array. We
-        // are going to merge arr[left..left+size-1]
-        // and arr[left+size, left+2*size-1]
-        // After every merge, we increase left by 2*size
-        for (long long left = 0; left < n; left += 2*size)
-        {
-            // find ending point of left sub array
-            // mid+1 is starting point of right sub array
-            long long mid = std::min((left + size - 1), (n-1));
-            long long right = std::min((left + 2*size - 1), (n-1));
-            // merge sub array arr[left.....mid] &
-            // arr[mid+1....right]
-            mergeTim(arr, left, mid, right);
-        }
-    }
-}
+
 
 
 //=============================================
 
 void printArr(vector<float> arr) {
+    for (auto i = arr.begin(); i != arr.end(); i++) {
+        cout << *i << " ";
+    }
+    cout << endl;
+}
+
+void printArr(vector<long> arr) {
     for (auto i = arr.begin(); i != arr.end(); i++) {
         cout << *i << " ";
     }
@@ -339,6 +267,44 @@ int getMinrun(int n) {
         n >>= 1;
     }
     return r + n;
+}
+
+void getTimeSort(vector<float>& arr) {
+    vector<float> arrCopy = arr;
+    cout << "Selection sort for ";
+    auto timeBegin = clock();
+    selectionSort(arrCopy);
+    cout << clock() - timeBegin << endl;
+    
+    arrCopy = arr;
+    cout << "Merge sort for ";
+    timeBegin = clock();
+    mergeSort(arrCopy, 0, (int)arrCopy.size());
+    cout << clock() - timeBegin << endl;
+    
+    arrCopy = arr;
+    cout << "Bucket sort for ";
+    timeBegin = clock();
+    bucketSort(arr);
+    cout << clock() - timeBegin << endl;
+    
+    arrCopy = arr;
+    cout << "Quick sort random for ";
+    timeBegin = clock();
+    quickSortRandom(arrCopy, 0, (int)arrCopy.size() - 1);
+    cout << clock() - timeBegin << endl;
+    
+    arrCopy = arr;
+    cout << "Quick sort worst for ";
+    timeBegin = clock();
+    quickSortWorst(arrCopy, 0, (int)arrCopy.size() - 1);
+    cout << clock() - timeBegin << endl;
+    
+    arrCopy = arr;
+    cout << "Tim sort for ";
+    timeBegin = clock();
+    timSort(arr);
+    cout << clock() - timeBegin << endl;
 }
 
 

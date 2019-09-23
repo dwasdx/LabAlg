@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		750E0625232D481C0050F7F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 750E0624232D481C0050F7F2 /* main.cpp */; };
 		750E063D232D50D30050F7F2 /* sortingAlg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 750E063C232D50D30050F7F2 /* sortingAlg.cpp */; };
+		759996952333C36800E76F47 /* benchmarks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 759996932333C36800E76F47 /* benchmarks.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		750E0624232D481C0050F7F2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		750E063B232D50D30050F7F2 /* sortingAlg.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = sortingAlg.hpp; path = "/Users/andrei/Library/Autosave Information/Lab Alg/Lab Alg/sortingAlg.hpp"; sourceTree = "<absolute>"; };
 		750E063C232D50D30050F7F2 /* sortingAlg.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = sortingAlg.cpp; path = "/Users/andrei/Library/Autosave Information/Lab Alg/Lab Alg/sortingAlg.cpp"; sourceTree = "<absolute>"; };
+		759996932333C36800E76F47 /* benchmarks.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = benchmarks.cpp; sourceTree = "<group>"; };
+		759996942333C36800E76F47 /* benchmarks.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = benchmarks.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,8 @@
 			isa = PBXGroup;
 			children = (
 				750E0624232D481C0050F7F2 /* main.cpp */,
+				759996932333C36800E76F47 /* benchmarks.cpp */,
+				759996942333C36800E76F47 /* benchmarks.hpp */,
 				750E063C232D50D30050F7F2 /* sortingAlg.cpp */,
 				750E063B232D50D30050F7F2 /* sortingAlg.hpp */,
 				750E0622232D481C0050F7F2 /* Products */,
@@ -125,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				750E0625232D481C0050F7F2 /* main.cpp in Sources */,
+				759996952333C36800E76F47 /* benchmarks.cpp in Sources */,
 				750E063D232D50D30050F7F2 /* sortingAlg.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,32 +7,32 @@
 //
 
 #include <iostream>
-#include "sortingAlg.hpp"
 #include <random>
-#include <ctime>
+#include "benchmarks.hpp"
+
 //#include "serviceFunc.cpp"
 
 using namespace std;
 
 
+
 int main(int argc, const char * argv[]) {
     srand(time(NULL));
-    vector<float> arr, arr2;
-    for (int i = 0; i < 1000; i++)
-        arr.push_back((static_cast<float>(rand() / static_cast<float>(RAND_MAX))) * 100);
-    for (int i = 0; i < 4; i++)
-        arr2.push_back((static_cast<float>(rand() / static_cast<float>(RAND_MAX))) * 10);
-    cout << "Unserted array 1" << endl;
-//    printArr(arr);
-//    cout << "Unsorted array 2" << endl;
-//    printArr(arr2);
-    auto timeBegin = clock();
-    timSort(arr);
-//    selectionSort(arr);
-    auto timeEnd = clock();
-    cout << "Sorted array 1" << endl;
+//    vector<long> timesSel = selectionBench();
+//    vector<long> timesMerge = mergeBench();
+//    vector<long> timesBucket = bucketBench();
+//    vector<long> timesQuickRand = quickRandBench();
+//    vector<long> timesQuickWorst = quickWorstBench();
+//    vector<long> timesTim = timBench();
+    vector<float> arr = fillArray(10);
     printArr(arr);
-    cout << "For " << timeEnd - timeBegin << endl;
-    
+    quickSortRandom(arr, 0, arr.size() - 1);
+    printArr(arr);
+    return 0;
+//    getTimeSort(arr);
+//    auto time = clock();
+//    quickSortRandom(arr, 0, arr.size() - 1);
+//    cout << clock() - time << endl;
+//    printArr(arr);
     
 }
