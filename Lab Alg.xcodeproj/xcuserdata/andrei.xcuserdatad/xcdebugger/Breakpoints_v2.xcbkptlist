@@ -15,43 +15,9 @@
             timestampString = "590597473.2786959"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "quickSortWorst(arr, left, right)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "33AE34A9-C3C3-4430-85ED-ACB0CC12EA26"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Lab Alg/sortingAlg.cpp"
-            timestampString = "590597473.278933"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "quickSortWorst(arr, left, right)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1FFAC71A-E55A-4D16-AE8B-805DF7CAB690"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Lab Alg/sortingAlg.cpp"
-            timestampString = "590597473.278986"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "quickSortWorst(arr, left, right)"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "quickSortPartitionRandom(arr, left, right)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -66,60 +32,9 @@
             timestampString = "590597473.279035"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "quickSortRandom(arr, left, right)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "73CD5286-680A-439B-9CB2-AE6DDD8FF9BF"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Lab Alg/sortingAlg.cpp"
-            timestampString = "590597473.279081"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "quickSortRandom(arr, left, right)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0409774C-41A2-4968-9AD3-A319C4880065"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Lab Alg/sortingAlg.cpp"
-            timestampString = "590597473.279125"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "quickSortRandom(arr, left, right)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DD16128B-C650-4DF5-8EFA-6BC698DC38B5"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Lab Alg/sortingAlg.cpp"
-            timestampString = "590597473.279169"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239"
-            landmarkName = "searchMaxForSort(arr, left, right)"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "quickSortWorst(arr, left, right)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
