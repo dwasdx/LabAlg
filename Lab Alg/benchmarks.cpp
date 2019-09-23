@@ -39,7 +39,7 @@ vector<long> mergeBench() {
         for (int i = 0; i < 50; i++) {
             vector<float> arr = fillArray(size);
             auto timeBegin = clock();
-            mergeSort(arr, 0, arr.size() - 1);
+            mergeSort(arr);
             timeAll += clock() - timeBegin;
         }
         averageTime.push_back(timeAll / 50);
@@ -73,7 +73,7 @@ vector<long> quickRandBench() {
         for (int i = 0; i < 50; i++) {
             vector<float> arr = fillArray(size);
             auto timeBegin = clock();
-            quickSortRandom(arr, 0, arr.size() - 1);
+            quickSortRandom(arr);
             timeAll += clock() - timeBegin;
         }
         averageTime.push_back(timeAll / 50);
@@ -90,7 +90,7 @@ vector<long> quickWorstBench() {
         for (int i = 0; i < 50; i++) {
             vector<float> arr = fillArray(size);
             auto timeBegin = clock();
-            quickSortWorst(arr, 0, arr.size() - 1);
+            quickSortWorst(arr);
             timeAll += clock() - timeBegin;
         }
         averageTime.push_back(timeAll / 50);
