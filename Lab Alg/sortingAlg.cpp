@@ -110,27 +110,28 @@ void quickSortWorst(vector<float>& arr, int left, int right) {
 
 int quickSortPartitionRandom(vector<float>& arr, int left, int right) {
 //    int randIndex = rand() % right + left;
-    float pivot = arr[(rand() % right - left) + left];
-    int leftmark = left + 1;
-    int rightmark = right;
-    bool flag = false;
-    while (!flag) {
-        while (arr[leftmark] <= pivot && leftmark <= rightmark)
-            leftmark++;
-        while (pivot <= arr[rightmark] && leftmark <= rightmark)
-            rightmark--;
-        if (rightmark < leftmark) {
-            flag = true;
-        } else {
-            float temp = arr[leftmark];
-            arr[leftmark] = arr[rightmark];
-            arr[rightmark] = temp;
-        }
+//    float pivot = arr[(rand() % right - left) + left];
+    int randIndex = (rand() % right - left) + left;
+    {
+        float temp = arr[randIndex];
+        arr[randIndex] = arr[right];
+        arr[right] = temp;
     }
-    float temp = arr[left];
-    arr[left] = arr[rightmark];
-    arr[rightmark] = temp;
-    return rightmark;
+    float pivot = arr[right];
+    
+//    float pivot = arr[right];
+    int i = left - 1;
+    for (int j = left; j <= right - 1; j++)
+        if (arr[j] < pivot) {
+            i++;
+            float temp = arr[j];
+            arr[j] = arr[i];
+            arr[i] = temp;
+        }
+    float temp = arr[i + 1];
+    arr[i + 1] = arr[right];
+    arr[right] = temp;
+    return i + 1;
 }
 
 int quickSortPartitionWorst(vector<float>& arr, int left, int right) {
