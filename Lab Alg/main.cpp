@@ -26,7 +26,7 @@ int main(int argc, const char * argv[]) {
 //    vector<long> timesTim = timBench();
     vector<float> arr = fillArray(10);
     printArr(arr);
-    quickSortRandom(arr, 0, arr.size() - 1);
+    timSort(arr);
     printArr(arr);
     return 0;
 //    getTimeSort(arr);

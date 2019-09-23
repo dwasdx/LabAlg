@@ -12,8 +12,8 @@
 #include <random>
 #include <algorithm>
 using namespace std;
-int RUN = 32;
-
+//int RUN = 32;
+//Selection Sort
 void selectionSort(vector<float>& arr) {
     if (arr.size() == 0)
         return;
@@ -30,16 +30,14 @@ void selectionSort(vector<float>& arr) {
 //    return arr;
 }
 
+//Bucket Sort
 void bucketSort(vector<float>& arr) {
 //    int range = (int)(searchMax(arr) - searchMin(arr)) + 1;
     vector<float> bucket[arr.size()];
-    float maxElem = searchMax(arr);
+    auto maxElem = max_element(arr.begin(), arr.end());
     
-    for (int i = 0; i < arr.size(); i++) {
-//        int a = (int)(arr.size() * arr[i] / maxElem - 1);
-        bucket[int(arr.size() * arr[i] / maxElem - 1)].push_back(arr[i]);
-        
-    }
+    for (int i = 0; i < arr.size(); i++)
+        bucket[int(arr.size() * arr[i] / *maxElem - 1)].push_back(arr[i]);
     
     for (int i = 0; i < arr.size(); i++)
         selectionSort(bucket[i]);
@@ -54,12 +52,17 @@ void bucketSort(vector<float>& arr) {
     return;
 }
 
-void mergeSort(vector<float>& arr, int left, int right) {
+//Merge Sort
+void mergeSort(vector<float>& arr) {
+    mergeSortAction(arr, 0, (int)arr.size());
+}
+
+void mergeSortAction(vector<float>& arr, int left, int right) {
     if (left + 1 >= right)
         return;
     int medium = (left + right) / 2;
-    mergeSort(arr, left, medium);
-    mergeSort(arr, medium, right);
+    mergeSortAction(arr, left, medium);
+    mergeSortAction(arr, medium, right);
     merge(arr, left, medium, right);
 }
 
@@ -92,25 +95,35 @@ void merge(vector<float>& arr, int left, int medium, int right) {
     }
 }
 
-void quickSortRandom(vector<float>& arr, int left, int right) {
+//Quick Sort
+void quickSortRandom(vector<float>& arr) {
+    quickSortRandomAction(arr, 0, (int)arr.size() - 1);
+}
+
+void quickSortWorst(vector<float>& arr) {
+    quickSortWorstAction(arr, 0, (int)arr.size() - 1);
+}
+
+void quickSortRandomAction(vector<float>& arr, int left, int right) {
     if (left < right) {
         int partitionIndex = quickSortPartitionRandom(arr, left, right);
-        quickSortRandom(arr, left, partitionIndex - 1);
-        quickSortRandom(arr, partitionIndex + 1, right);
+        quickSortRandomAction(arr, left, partitionIndex - 1);
+        quickSortRandomAction(arr, partitionIndex + 1, right);
     }
 }
 
-void quickSortWorst(vector<float>& arr, int left, int right) {
+void quickSortWorstAction(vector<float>& arr, int left, int right) {
     if (left < right) {
         int partitionIndex = quickSortPartitionWorst(arr, left, right);
-        quickSortWorst(arr, left, partitionIndex - 1);
-        quickSortWorst(arr, partitionIndex + 1, right);
+        quickSortWorstAction(arr, left, partitionIndex - 1);
+        quickSortWorstAction(arr, partitionIndex + 1, right);
     }
 }
 
 int quickSortPartitionRandom(vector<float>& arr, int left, int right) {
-//    int randIndex = rand() % right + left;
-    float pivot = arr[(rand() % right - left) + left];
+    int randIndex = (rand() % (right - left + 1)) + left;
+    swap(arr[left], arr[randIndex]);
+    float pivot = arr[left];
     int leftmark = left + 1;
     int rightmark = right;
     bool flag = false;
@@ -119,22 +132,21 @@ int quickSortPartitionRandom(vector<float>& arr, int left, int right) {
             leftmark++;
         while (pivot <= arr[rightmark] && leftmark <= rightmark)
             rightmark--;
-        if (rightmark < leftmark) {
+        if (rightmark < leftmark)
             flag = true;
-        } else {
-            float temp = arr[leftmark];
-            arr[leftmark] = arr[rightmark];
-            arr[rightmark] = temp;
-        }
+        else
+            swap(arr[leftmark], arr[rightmark]);
     }
-    float temp = arr[left];
-    arr[left] = arr[rightmark];
-    arr[rightmark] = temp;
+    swap(arr[left], arr[rightmark]);
     return rightmark;
 }
 
 int quickSortPartitionWorst(vector<float>& arr, int left, int right) {
-    float pivot = searchMinForSort(arr, left, right);
+//    float minInd = searchMinForSort(arr, left, right);
+//    swap(arr[left], arr[minInd]);
+    auto minInd = min_element(arr.begin() + left, arr.begin() + right);
+    swap(*(arr.begin() + left), *minInd);
+    float pivot = arr[left];
     int leftmark = left + 1;
     int rightmark = right;
     bool flag = false;
@@ -143,20 +155,16 @@ int quickSortPartitionWorst(vector<float>& arr, int left, int right) {
             leftmark++;
         while (pivot <= arr[rightmark] && leftmark <= rightmark)
             rightmark--;
-        if (rightmark < leftmark) {
+        if (rightmark < leftmark)
             flag = true;
-        } else {
-            float temp = arr[leftmark];
-            arr[leftmark] = arr[rightmark];
-            arr[rightmark] = temp;
-        }
+        else
+            swap(arr[leftmark], arr[rightmark]);
     }
-    float temp = arr[left];
-    arr[left] = arr[rightmark];
-    arr[rightmark] = temp;
+    swap(arr[left], arr[rightmark]);
     return rightmark;
 }
 
+//Tim Sort
 void insertionSort(vector<float>& arr, int left, int right) {
     for (int i = left + 1; i <= right; i++) {
         float temp = arr[i];
@@ -232,43 +240,6 @@ void printArr(vector<long> arr) {
     cout << endl;
 }
 
-float searchMaxForSort(vector<float> arr, int left, int right) {
-    float max = arr[left];
-    for (int i = left + 1; i < right; i++)
-        max = arr[i] > max ? arr[i] : max;
-    return max;
-}
-
-float searchMinForSort(vector<float> arr, int left, int right) {
-    float min = arr[left];
-    for (int i = left + 1; i < right; i++)
-        min = arr[i] < min ? arr[i] : min;
-    return min;
-}
-
-float searchMin(vector<float> arr) {
-    float min = arr[0];
-    for (auto i = arr.begin() + 1; i != arr.end(); i++)
-        min = *i < min ? *i : min;
-    return min;
-}
-
-float searchMax(vector<float> arr) {
-    float max = arr[0];
-    for (auto i = arr.begin() + 1; i != arr.end(); i++)
-        max = *i > max ? *i : max;
-    return max;
-}
-
-int getMinrun(int n) {
-    int r = 0;
-    while (n >= 64) {
-        r |= n & 1;
-        n >>= 1;
-    }
-    return r + n;
-}
-
 void getTimeSort(vector<float>& arr) {
     vector<float> arrCopy = arr;
     cout << "Selection sort for ";
@@ -279,7 +250,7 @@ void getTimeSort(vector<float>& arr) {
     arrCopy = arr;
     cout << "Merge sort for ";
     timeBegin = clock();
-    mergeSort(arrCopy, 0, (int)arrCopy.size());
+    mergeSort(arrCopy);
     cout << clock() - timeBegin << endl;
     
     arrCopy = arr;
@@ -291,13 +262,13 @@ void getTimeSort(vector<float>& arr) {
     arrCopy = arr;
     cout << "Quick sort random for ";
     timeBegin = clock();
-    quickSortRandom(arrCopy, 0, (int)arrCopy.size() - 1);
+    quickSortRandom(arrCopy);
     cout << clock() - timeBegin << endl;
     
     arrCopy = arr;
     cout << "Quick sort worst for ";
     timeBegin = clock();
-    quickSortWorst(arrCopy, 0, (int)arrCopy.size() - 1);
+    quickSortWorst(arrCopy);
     cout << clock() - timeBegin << endl;
     
     arrCopy = arr;
